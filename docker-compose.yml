@@ -4,3 +4,4 @@ include:
   - ./runtime/airflow/docker-compose.yml
   - ./runtime/minio/docker-compose.yml
   - ./runtime/mlflow/docker-compose.yml
+  - ./runtime/notebook/docker-compose.yml

@@ -1,0 +1,6 @@
+artifact_location: file:///home/jovyan/work/Sentiment/mlruns/571573530989070179
+creation_time: 1763230207466
+experiment_id: '571573530989070179'
+last_update_time: 1763230207466
+lifecycle_stage: active
+name: Stock_News_Sentiment

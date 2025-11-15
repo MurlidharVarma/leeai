@@ -1,0 +1,9 @@
+services:
+  notebook:
+    build:
+      context: .
+    volumes:
+      - ../../src/notebook:/home/jovyan/work
+    ports:
+      - 4200:8888
+    command: "start-notebook.sh --NotebookApp.token="

@@ -19,7 +19,7 @@ services:
       MLFLOW_S3_IGNORE_TLS: "true"
     ports:
       - "${MLFLOW_PORT}:${MLFLOW_PORT}"
-    command: mlflow server --backend-store-uri ${MLFLOW_BACKEND_STORE_URI} --default-artifact-root ${MLFLOW_DEFAULT_ARTIFACT_ROOT} --port ${MLFLOW_PORT}
+    command: mlflow server --backend-store-uri ${MLFLOW_BACKEND_STORE_URI} --artifacts-destination ${MLFLOW_DEFAULT_ARTIFACT_ROOT} --port ${MLFLOW_PORT} --allowed-hosts="*" --cors-allowed-origins="*"
     healthcheck:
       test:
         [
