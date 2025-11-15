@@ -1,0 +1,33 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_DB: airflow   # Sets the default database name
+      POSTGRES_USER: airflow # Sets the database user
+      POSTGRES_PASSWORD: airflow # Sets the password for the database user
+    ports:
+      - "5432:5432" # Maps port 5432 on the host to port 5432 in the container
+    volumes:
+      - ./data:/var/lib/postgresql # Persists the database data
+    restart: unless-stopped # Ensures the container restarts automatically unless stopped manually
+    healthcheck:
+      test: ["CMD", "pg_isready", "-d", "airflow"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: lee@aipeel.org
+      PGADMIN_DEFAULT_PASSWORD: leesecret
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  postgres_data: # Defines a named volume for data persistence
+  pgadmin-data:
