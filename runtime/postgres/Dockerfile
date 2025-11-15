@@ -1,6 +1,6 @@
 FROM postgres:18-alpine
 
-ENV POSTGRES_USER=${POSTGRES_USER}
+ARG POSTGRES_USER
 
 COPY create-multiple-postgresql-databases.sh /docker-entrypoint-initdb.d/
 

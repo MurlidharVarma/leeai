@@ -2,3 +2,5 @@ include:
   - ./runtime/postgres/docker-compose.yml
   - ./runtime/redis/docker-compose.yml
   - ./runtime/airflow/docker-compose.yml
+  - ./runtime/minio/docker-compose.yml
+  - ./runtime/mlflow/docker-compose.yml

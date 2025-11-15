@@ -2,14 +2,11 @@ services:
   postgres:
     build:
       context: .
+      args:
+        - POSTGRES_USER=${POSTGRES_USER:-airflow}
     container_name: postgres
     env_file:
       - ${ENV_FILE_PATH:-.env}
-    # environment:
-    #   POSTGRES_DB: ${POSTGRES_DB:-leeai}   # Sets the default database name
-    #   POSTGRES_USER: ${POSTGRES_USER:-leeai} # Sets the database user
-    #   POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-leeai} # Sets the password for the database user
-    #   POSTGRES_MULTIPLE_DATABASES: ${POSTGRES_MULTIPLE_DATABASES:-}
     ports:
       - "5432:5432" # Maps port 5432 on the host to port 5432 in the container
     volumes:
